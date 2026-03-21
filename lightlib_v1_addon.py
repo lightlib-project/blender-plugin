@@ -27,8 +27,8 @@ def hex_to_rgb(hex_str):
 
 
 # Main operator
-class AILIGHTS_OT_import_rig(bpy.types.Operator):
-    bl_idname = "ailights.import_rig"
+class LIGHTLIB_OT_import_rig(bpy.types.Operator):
+    bl_idname = "lightlib.import_rig"
     bl_label = "Paste Rig from Clipboard"
     bl_description = "Generates a 3D lighting rig from JSON data in your clipboard"
 
@@ -130,7 +130,7 @@ class AILIGHTS_OT_import_rig(bpy.types.Operator):
         return {"FINISHED"}
 
 
-class AILIGHTS_PT_main_panel(bpy.types.Panel):
+class LIGHTLIB_PT_main_panel(bpy.types.Panel):
     bl_label = "Lightlib"
     bl_idname = "LIGHTLIB_PT_main_panel"
     bl_space_type = "VIEW_3D"
@@ -139,13 +139,13 @@ class AILIGHTS_PT_main_panel(bpy.types.Panel):
 
     def draw(self, context):
         self.layout.operator(
-            AILIGHTS_OT_import_rig.bl_idname,
+            LIGHTLIB_OT_import_rig.bl_idname,
             text="Paste Rig from Clipboard",
             icon="PASTEDOWN",
         )
 
 
-classes = (AILIGHTS_OT_import_rig, AILIGHTS_PT_main_panel)
+classes = (LIGHTLIB_OT_import_rig, LIGHTLIB_PT_main_panel)
 
 
 def register():
