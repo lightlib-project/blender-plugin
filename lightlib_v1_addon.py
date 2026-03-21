@@ -3,7 +3,7 @@ bl_info = {
     "author": "PRGM Services",
     "version": (1, 0),
     "blender": (3, 0, 0),
-    "location": "View3D > Sidebar > AI Lights",
+    "location": "View3D > Sidebar > LightLib",
     "description": "Imports JSON lighting rigs from lightlib.dev",
     "category": "Lighting",
 }
@@ -44,7 +44,7 @@ class AILIGHTS_OT_import_rig(bpy.types.Operator):
             self.report({"ERROR"}, "JSON is missing the 'lights' array.")
             return {"CANCELLED"}
 
-        rig_name = data.get("rig_name", "AI Lighting Rig")
+        rig_name = data.get("rig_name", "Lighting Rig")
 
         # Create Master Anchor
         bpy.ops.object.empty_add(type="PLAIN_AXES", location=(0, 0, 0))
@@ -131,11 +131,11 @@ class AILIGHTS_OT_import_rig(bpy.types.Operator):
 
 
 class AILIGHTS_PT_main_panel(bpy.types.Panel):
-    bl_label = "AI Light Studio"
-    bl_idname = "AILIGHTS_PT_main_panel"
+    bl_label = "Lightlib"
+    bl_idname = "LIGHTLIB_PT_main_panel"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "AI Lights"
+    bl_category = "Lightlib"
 
     def draw(self, context):
         self.layout.operator(
